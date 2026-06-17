@@ -1,7 +1,5 @@
 import pandas as pd
 import os
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
 
 def get_data_with_membership():
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -25,15 +23,4 @@ def get_membership_ranges(bins):
     })
     return range_df
 
-def train_prediction_model():
-    df, _ = get_data_with_membership()
-    
-    # Fitur yang digunakan
-    X = df[['Avg. Session Length', 'Time on App', 'Time on Website', 'Length of Membership']]
-    y = df['Yearly Amount Spent']
-    
-    # Inisialisasi model
-    model = LinearRegression()
-    model.fit(X, y)
-    
-    return model
+

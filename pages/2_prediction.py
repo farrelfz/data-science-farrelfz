@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-from models.modelbaru import train_prediction_model
+import joblib
+import os
 
 # ======= Konfigurasi Halaman =======
 
@@ -13,13 +14,16 @@ st.set_page_config(
 st.title("💡 Prediksi Pengeluaran Tahunan")
 st.write("Masukkan data pelanggan di bawah ini untuk memprediksi perkiraan total pengeluaran tahunan mereka.")
 
+
 # ======= Load Model =======
 
 @st.cache_resource
-def load_model():
-    return train_prediction_model()
+def load_models():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(current_dir, '../models/model_pipelines.joblib')
+    return joblib.load(model_path)
 
-model = load_model()
+models_dict = load_models()
 
 # ======= Form Input =======
 
@@ -64,11 +68,21 @@ with st.form("prediction_form"):
             help="Sudah berapa lama pelanggan menjadi member (Length of Membership)"
         )
         
+    st.subheader("Pilih Model Prediksi")
+    selected_model_name = st.selectbox(
+        "Model Machine Learning", 
+        options=list(models_dict.keys()),
+        help="Pilih algoritma yang sudah di-train sebelumnya di model_pipelines.joblib"
+    )
+    
     submit_button = st.form_submit_button("Prediksi Pengeluaran 🚀")
 
 # ======= Prediksi =======
 
 if submit_button:
+    # Ambil model yang dipilih
+    model = models_dict[selected_model_name]
+    
     # Siapkan data untuk prediksi
     input_data = pd.DataFrame({
         'Avg. Session Length': [avg_session],
@@ -100,4 +114,4 @@ if submit_button:
     
     st.markdown(f'<div class="big-font">Estimasi Pengeluaran Tahunan: ${prediction:,.2f}</div>', unsafe_allow_html=True)
     
-    st.info("Prediksi ini menggunakan model Linear Regression berdasarkan data historis pelanggan.")
+    st.info(f"Prediksi ini menggunakan model **{selected_model_name}** yang dimuat dari model yang sudah ditraining.")
