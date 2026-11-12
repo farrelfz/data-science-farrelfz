@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Data Science Portfolio — Farrel Fauzan</title>
+  <meta name="description" content="Portofolio data science Muhamad Farrel Dava Fauzan: prediksi attrition karyawan (ANN), estimasi premi asuransi, dan prediksi langganan e-commerce — Streamlit + TensorFlow." />
+  <link rel="canonical" href="https://farrelfz.github.io/data-science-farrelfz/" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #6d28d9;
+      --accent-soft: #f3e8ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+    header {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 0 3rem;
+    }
+    .kicker {
+      display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+      border-radius: 999px; padding: .3rem .9rem; margin-bottom: 1rem;
+    }
+    h1 { font-size: 2.25rem; line-height: 1.2; margin-bottom: .75rem; }
+    .lead { color: var(--muted); max-width: 640px; font-size: 1.05rem; }
+    main { padding: 3rem 0 4rem; }
+    section + section { margin-top: 3rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 1rem;
+      padding: 1.5rem; transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover { box-shadow: 0 10px 30px rgba(15, 23, 42, .08); transform: translateY(-2px); }
+    .card h3 { font-size: 1.15rem; margin-bottom: .25rem; }
+    .card .tech {
+      font-size: .75rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: .75rem; display: block;
+    }
+    .card p { color: var(--muted); font-size: .925rem; margin-bottom: 1rem; }
+    .card .links { display: flex; flex-wrap: wrap; gap: .5rem; padding-top: .75rem; border-top: 1px solid var(--border); }
+    .card .links a {
+      font-size: .8rem; font-weight: 600; padding: .35rem .75rem;
+      border: 1px solid var(--border); border-radius: .5rem; color: var(--text);
+    }
+    .card .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .skills { list-style: none; display: grid; gap: .5rem; color: var(--muted); font-size: .95rem; }
+    .skills li::before { content: "▸ "; color: var(--accent); font-weight: 700; }
+    .run {
+      background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.25rem 1.5rem;
+      font-size: .9rem; overflow-x: auto;
+    }
+    .run code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    footer {
+      border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem;
+      color: var(--muted); font-size: .875rem;
+    }
+    footer .container { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; justify-content: space-between; align-items: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="kicker">Data Science Portfolio</span>
+      <h1>Muhamad Farrel Dava Fauzan</h1>
+      <p class="lead">
+        Kumpulan proyek data science end-to-end: analisis eksploratif, pemodelan prediktif
+        (ANN &amp; machine learning klasik), dan aplikasi interaktif berbasis Streamlit.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h">Proyek</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Employee Attrition Prediction</h3>
+          <span class="tech">Python · TensorFlow/Keras · Streamlit</span>
+          <p>
+            Diagnosis dan prediksi risiko attrition (pengunduran diri) karyawan dari data historis HR.
+            Aplikasi Streamlit multi-halaman dengan Artificial Neural Network, lengkap notebook
+            EDA (MP01) dan modeling (MP02).
+          </p>
+          <div class="links">
+            <a href="https://github.com/farrelfz/data-science-farrelfz/tree/main/attrition">Source</a>
+            <a href="https://github.com/farrelfz/data-science-farrelfz/blob/main/attrition/notebook/MP01_Muhamad_Farrel_Dava_Fauzan.ipynb">Notebook MP01</a>
+            <a href="https://github.com/farrelfz/data-science-farrelfz/blob/main/attrition/notebook/MP02_Muhamad_Farrel_Dava_Fauzan.ipynb">Notebook MP02</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Insurance Cost Estimation</h3>
+          <span class="tech">Python · scikit-learn · Streamlit</span>
+          <p>
+            Estimasi biaya premi asuransi kesehatan dari profil demografis (usia, BMI, kebiasaan
+            merokok, dll.). Model regresi terlatih dikemas sebagai aplikasi Streamlit.
+          </p>
+          <div class="links">
+            <a href="https://github.com/farrelfz/data-science-farrelfz/tree/main/insurance">Source</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Subscription Prediction</h3>
+          <span class="tech">Python · scikit-learn · Streamlit</span>
+          <p>
+            Prediksi langganan pelanggan e-commerce berbasis profil dan perilaku pelanggan.
+            Aplikasi Streamlit dua halaman dengan model terlatih.
+          </p>
+          <div class="links">
+            <a href="https://github.com/farrelfz/data-science-farrelfz/tree/main/subscription">Source</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">Skill yang ditunjukkan</h2>
+      <ul class="skills">
+        <li>Exploratory Data Analysis — pembersihan, visualisasi, dan pemahaman pola data tabular</li>
+        <li>Pemodelan prediktif — Artificial Neural Network (TensorFlow/Keras) dan machine learning klasik (scikit-learn)</li>
+        <li>Evaluasi model — metrik klasifikasi/regresi, validasi, dan tuning</li>
+        <li>Deployment — model dikemas sebagai aplikasi web interaktif (Streamlit)</li>
+        <li>Manajemen artefak — model terlatih (<code>.keras</code>, <code>.joblib</code>) dan dataset dikelola rapi per proyek</li>
+      </ul>
+    </section>
+
+    <section id="run" aria-labelledby="run-h">
+      <h2 id="run-h">Menjalankan aplikasi</h2>
+      <div class="run">
+        <code>
+          git clone https://github.com/farrelfz/data-science-farrelfz.git<br />
+          cd data-science-farrelfz/attrition&nbsp;&nbsp;# atau insurance / subscription<br />
+          pip install -r requirements.txt<br />
+          streamlit run app.py
+        </code>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Muhamad Farrel Dava Fauzan</span>
+      <span>
+        <a href="https://github.com/farrelfz/data-science-farrelfz">GitHub repo</a>
+        &nbsp;·&nbsp;
+        <a href="https://farrelfz.github.io">← Portfolio utama</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
